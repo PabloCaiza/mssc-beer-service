@@ -16,11 +16,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "beer")
 public class Beer {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(length = 36,columnDefinition = "varchar",nullable = false,updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Version
     private Long version;
